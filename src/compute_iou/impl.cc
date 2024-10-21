@@ -17,5 +17,9 @@ float compute_iou(const cv::Rect& a, const cv::Rect& b) {
      * 运行测试点，显示通过就行，不通过会告诉你哪一组矩形错了。
     */
     // IMPLEMENT YOUR CODE HERE
-    return 0.f;
+    cv::Rect I = a & b;
+    float U = a.area() + b.area() - I.area();
+    float IOU = (I.area()*1.0) / U;
+
+    return IOU;
 }
